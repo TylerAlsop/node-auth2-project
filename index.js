@@ -5,7 +5,9 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser")
 
 const usersRouter = require("./routers/users/usersRouter")
-const authRouter = require("./routers/authRouter")
+const registerRouter = require("./routers/registerRouter")
+const loginRouter = require("./routers/loginRouter")
+
 
 
 const server = express()
@@ -16,8 +18,10 @@ server.use(helmet())
 server.use(express.json())
 server.use(cookieParser())
 
-server.use("/users", usersRouter)
-server.use("/auth", authRouter)
+server.use("/api/users", usersRouter)
+server.use("/api/register", registerRouter);
+server.use("/api/login", loginRouter)
+
 
 server.get("/", (req, res, next) => {
 	res.json({
