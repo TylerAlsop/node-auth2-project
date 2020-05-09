@@ -13,7 +13,7 @@ router.post("/", async (req, res, next) => {
 
 		if (user) {
 			return res.status(409).json({
-				message: "Username is already taken",
+				message: "Username is already taken.",
 			})
 		}
 
